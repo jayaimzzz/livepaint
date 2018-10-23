@@ -19,13 +19,9 @@ const pollServer = async function () {
     })
     res = await res.json();
     lengthOfLastServerUpdate += res.serverUpdates.length
-    // console.log("lengthOfLastServerUpdate", lengthOfLastServerUpdate)
-    console.log(res.serverUpdates)
     if (res.serverUpdates.length > 0) {
         res.serverUpdates.forEach(update => {
-            bitmap.applyUpdatesFromServer(update[0][0],update[0][1],update[0][2])
-            // bitmap.setColor(1,1,"black")
-            // console.log(update[0][0],update[0][1],update[0][2])
+            bitmap.applyUpdatesFromServer(update[0],update[1],update[2])
         })
     }
 

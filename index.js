@@ -9,8 +9,9 @@ app.use(express.json())
 // Fill in your request handlers here
 
 app.post("/updates", function (req, res){
-    if(req.body.clientUpdates.length > 0) {updates.push(req.body.clientUpdates)}
-    // console.log(req.body.lengthOfLastServerUpdate)
+    if(req.body.clientUpdates.length > 0) {
+        req.body.clientUpdates.forEach(update => updates.push(update))
+    }
     newUpdates = updates.slice(req.body.lengthOfLastServerUpdate)
     res.send({
         "serverUpdates": newUpdates
