@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.post("/updates", function (req, res){
     if(req.body.clientUpdates.length > 0) {updates.push(req.body.clientUpdates)}
-    console.log(req.body.lengthOfLastServerUpdate)
+    // console.log(req.body.lengthOfLastServerUpdate)
     newUpdates = updates.slice(req.body.lengthOfLastServerUpdate)
     res.send({
         "serverUpdates": newUpdates

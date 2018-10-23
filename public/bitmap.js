@@ -38,6 +38,11 @@ Bitmap.prototype.setColor = function(row, col, color) {
     clientUpdates.push(clientUpdate)
 }
 
+Bitmap.prototype.applyUpdatesFromServer = function(row, col, color) {
+    this.grid[row][col] = color;
+    this.cells[row][col].style.background = color;
+}
+
 Bitmap.prototype.handleEvent = function(event) {
     if(event.type === "click") {
         var row = parseInt(event.currentTarget.dataset.row);
